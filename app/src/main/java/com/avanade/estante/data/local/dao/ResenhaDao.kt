@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
+import com.avanade.estante.data.local.entity.LeituraStatusEntity
 import com.avanade.estante.data.local.entity.ResenhaEntity
 
 @Dao
@@ -19,6 +20,9 @@ interface ResenhaDao {
 
     @Query("SELECT * FROM resenhas WHERE usuarioId = :usuarioId AND livroId = :livroId")
     suspend fun getResenha(usuarioId: Int, livroId: Int): ResenhaEntity?
+
+    @Query("SELECT * FROM resenhas WHERE status = :status")
+    suspend fun getResenhasPorStatus(status: LeituraStatusEntity): List<ResenhaEntity>
 
     @Delete
     suspend fun deletarResenha(resenha: ResenhaEntity)

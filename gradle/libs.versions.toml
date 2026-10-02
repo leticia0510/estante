@@ -15,6 +15,7 @@ room = "2.8.4"
 ksp = "2.3.5"
 kotlinSerialization = "2.0.21"
 navigationCompose = "2.10.1"
+runtime = "1.12.1"
 
 
 
@@ -45,6 +46,7 @@ androidx-room-paging = { group = "androidx.room", name = "room-paging", version.
 # Serialization
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.7.3" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

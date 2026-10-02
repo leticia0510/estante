@@ -36,6 +36,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import coil3.compose.AsyncImage
 import com.avanade.estante.domain.model.Livro
+import com.avanade.estante.ui.Screen
 import com.avanade.estante.ui.intent.LivroListaIntent
 import com.avanade.estante.ui.theme.DarkBlue
 import com.avanade.estante.ui.theme.LightBlue
@@ -196,9 +197,9 @@ fun LivroListaScreen(
                         LivroCard(
                             livro = livro,
                             onClick = {
-                                viewModel.onIntent(
-                                    LivroListaIntent.LivroClicked(
-                                        livro.id
+                                navController.navigate(
+                                    Screen.LivroDetalhe(
+                                        livroId = livro.id
                                     )
                                 )
                             }
@@ -230,7 +231,7 @@ private fun LivroCard(
             model = livro.urlImagem,
             contentDescription = null,
             modifier = Modifier
-                .width(240.dp)
+                .width(160.dp)
                 .aspectRatio(2f / 3f)
                 .clip(
                     RoundedCornerShape(12.dp)

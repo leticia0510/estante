@@ -1,5 +1,6 @@
 package com.avanade.estante.domain.repository
 
+import com.avanade.estante.domain.model.LeituraStatus
 import com.avanade.estante.domain.model.Resenha
 
 interface ResenhaRepository {
@@ -12,6 +13,10 @@ interface ResenhaRepository {
         usuarioId: Int,
         livroId: Int
     ): Resenha?
+
+    suspend fun getResenhasPorStatus(
+        status: LeituraStatus
+    ): List<Resenha>
 
     suspend fun deletarResenha(resenha: Resenha)
 }

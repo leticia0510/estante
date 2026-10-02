@@ -1,6 +1,7 @@
 package com.avanade.estante.di
 
 import com.avanade.estante.ui.viewmodel.LivroCadastroViewModel
+import com.avanade.estante.ui.viewmodel.LivroDetalheViewModel
 import com.avanade.estante.ui.viewmodel.LivroListaViewModel
 import com.avanade.estante.ui.viewmodel.LoginViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -23,6 +24,16 @@ val viewModelModule = module {
     viewModel {
         LivroListaViewModel(
             getTodosLivrosUseCase = get()
+        )
+    }
+
+    viewModel {
+        LivroDetalheViewModel(
+            getLivroPorIdUseCase = get(),
+            getResenhaUseCase = get(),
+            criarResenhaUseCase = get(),
+            atualizarResenhaUseCase = get(),
+            deletarResenhaUseCase = get()
         )
     }
 }

@@ -29,10 +29,6 @@ class LivroListaViewModel(
                 carregarLivros()
             }
 
-            is LivroListaIntent.LivroClicked -> {
-                // Futuramente podemos navegar para detalhes/edição
-            }
-
             LivroListaIntent.ErrorShown -> {
                 _uiState.update {
                     it.copy(erro = null)

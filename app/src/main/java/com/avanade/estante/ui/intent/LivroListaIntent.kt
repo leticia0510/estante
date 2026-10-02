@@ -6,9 +6,7 @@ sealed interface LivroListaIntent {
 
     data object RecarregarLivros : LivroListaIntent
 
-    data class LivroClicked(
-        val id: Int
-    ) : LivroListaIntent
+
 
     data object ErrorShown : LivroListaIntent
 }

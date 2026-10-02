@@ -29,10 +29,13 @@ import androidx.room.Index
     ]
 )
 data class ResenhaEntity(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val livroId: Int,
     val usuarioId: Int,
+    val status: LeituraStatusEntity,
     val texto: String,
     val avaliacao: Int
 )
+
+

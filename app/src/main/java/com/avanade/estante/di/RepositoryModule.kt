@@ -1,8 +1,10 @@
 package com.avanade.estante.di
 
 import com.avanade.estante.data.repository.LivroRepositoryImpl
+import com.avanade.estante.data.repository.ResenhaRepositoryImpl
 import com.avanade.estante.data.repository.UsuarioRepositoryImpl
 import com.avanade.estante.domain.repository.LivroRepository
+import com.avanade.estante.domain.repository.ResenhaRepository
 import com.avanade.estante.domain.repository.UsuarioRepository
 import org.koin.dsl.module
 
@@ -23,6 +25,12 @@ val repositoryModule = module {
     single<LivroRepository> {
         LivroRepositoryImpl(
             livroDao = get()
+        )
+    }
+
+    single<ResenhaRepository> {
+        ResenhaRepositoryImpl(
+            resenhaDao = get()
         )
     }
 }

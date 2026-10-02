@@ -24,8 +24,10 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import com.avanade.estante.data.repository.LivroRepositoryImpl
 import com.avanade.estante.ui.screens.LivroCadastroScreen
+import com.avanade.estante.ui.screens.LivroDetalheScreen
 import com.avanade.estante.ui.screens.LivroListaScreen
 import com.avanade.estante.ui.screens.LoginScreen
 
@@ -46,6 +48,11 @@ sealed class Screen{
 
     @Serializable
     object LivroLista : Screen()
+
+    @Serializable
+    data class LivroDetalhe(
+        val livroId: Int
+    ) : Screen()
 
 }
 
@@ -99,6 +106,18 @@ fun AppNavigation() {
 
             composable<Screen.LivroLista> {
                 LivroListaScreen(navController)
+            }
+
+
+            composable<Screen.LivroDetalhe> { backStackEntry ->
+
+                val route: Screen.LivroDetalhe =
+                    backStackEntry.toRoute()
+
+                LivroDetalheScreen(
+                    livroId = route.livroId,
+                    navController = navController
+                )
             }
 
         }
