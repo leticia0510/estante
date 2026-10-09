@@ -3,6 +3,7 @@ package com.avanade.estante
 import android.app.Application
 import com.avanade.estante.data.local.DatabaseSeeder
 import com.avanade.estante.di.databaseModule
+import com.avanade.estante.di.networkModule
 import com.avanade.estante.di.repositoryModule
 import com.avanade.estante.di.useCaseModule
 import com.avanade.estante.di.viewModelModule
@@ -25,6 +26,7 @@ class EstanteApplication : Application() {
             androidContext(this@EstanteApplication)
             modules(
                 databaseModule,
+                networkModule,
                 repositoryModule,
                 useCaseModule,
                 viewModelModule

@@ -1,9 +1,18 @@
+import java.util.Properties
+import kotlin.apply
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
 }
+
+val localProperties = Properties().apply{
+    load(rootProject.file("local.properties").inputStream())
+}
+
+val apiBooks = localProperties.getProperty("API_BOOKS") ?:""
 
 android {
     namespace = "com.avanade.estante"
@@ -21,6 +30,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "API_BOOKS", "\"$apiBooks\"")
     }
 
     buildTypes {
@@ -36,6 +46,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -57,6 +68,10 @@ dependencies {
     implementation(libs.androidx.room.paging)
     ksp(libs.androidx.room.compiler)
 
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp.logging.interceptor)
 
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")

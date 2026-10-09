@@ -17,6 +17,9 @@ kotlinSerialization = "2.0.21"
 navigationCompose = "2.10.1"
 runtime = "1.12.1"
 
+# Networking
+retrofit = "2.9.0"
+okhttp = "4.12.0"
 
 
 [libraries]
@@ -47,6 +50,11 @@ androidx-room-paging = { group = "androidx.room", name = "room-paging", version.
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.7.3" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
+
+# Retrofit
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

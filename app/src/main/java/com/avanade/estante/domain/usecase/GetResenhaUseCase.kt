@@ -9,7 +9,7 @@ class GetResenhaUseCase(
     suspend operator fun invoke(
         usuarioId: Int,
         livroId: Int
-    ): Resenha? {
+    ):  Resenha? {
         return repository.getResenha(
             usuarioId = usuarioId,
             livroId = livroId
